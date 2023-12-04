@@ -2,16 +2,15 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class MyModel(nn.Module):
-
-    def __init__(self):
-        super(MyModel, self).__init__()
+class SimpleCNN(nn.Module):
+    def __init__(self, dropout=0.5):
+        super(SimpleCNN, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, (3, 3))
         self.conv2 = nn.Conv2d(32, 64, (3, 3))
-        self.conv2_drop = nn.Dropout()
+        self.conv2_drop = nn.Dropout(p=dropout)
 
         self.fc1 = nn.Linear(5 * 5 * 64, 100)
-        self.fc1_drop = nn.Dropout()
+        self.fc1_drop = nn.Dropout(p=dropout)
         self.fc2 = nn.Linear(100, 10)
 
     def forward(self, x):

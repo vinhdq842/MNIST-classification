@@ -1,0 +1,7 @@
+# python==3.8.16
+torch==1.13.1
+python-mnist==0.7
+skorch==0.15.0
+scikit-learn==1.3.2
+matplotlib==3.7.4
+pygame==2.5.2
